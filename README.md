@@ -97,3 +97,10 @@ During the execution and analysis of `data/legacy_leads.csv`, 8 distinct data qu
    - `L1039`: Duplicate entry for `9680557051` (Original: `L1007`).
    - Row 41 re-used lead ID `L1033` with phone `9663925448` (Original: `L1013`).
    - *Action:* **Merged** with the original lead record; duplicate entries excluded from redundant re-import.
+  
+<img width="1878" height="868" alt="image" src="https://github.com/user-attachments/assets/d1f58c91-f14b-495c-8580-cb5e31145247" />
+<img width="1902" height="895" alt="image" src="https://github.com/user-attachments/assets/29f5fdb2-28bc-407b-a27d-f7a21a8ca0cd" />
+<img width="1891" height="906" alt="image" src="https://github.com/user-attachments/assets/ef2a89f6-30bb-4b48-8835-93afe8d69ad2" />
+<img width="1880" height="875" alt="image" src="https://github.com/user-attachments/assets/4060507a-c59c-46d4-95ee-ee7cd3141102" />
+<img width="1920" height="887" alt="image" src="https://github.com/user-attachments/assets/c5a7ec9f-e7f6-4ba0-ab2f-64ed4a475ffc" />
+<img width="1821" height="853" alt="image" src="https://github.com/user-attachments/assets/341373af-f17f-43e1-b17c-8059dcca8f07" />
