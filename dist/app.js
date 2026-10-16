@@ -15,7 +15,7 @@ import {
 
 // ===================== FIREBASE CONFIGURATION =====================
 const firebaseConfig = {
-  apiKey: "AIzaSyBW6vdHPwqStPPg67YkZPx-8jZkZ7O_Oqg",
+  apiKey: (typeof window !== 'undefined' && window.__FIREBASE_API_KEY__) || "",
   authDomain: "pure-energy-lead-router.firebaseapp.com",
   projectId: "pure-energy-lead-router",
   storageBucket: "pure-energy-lead-router.firebasestorage.app",
@@ -28,8 +28,10 @@ let db = null;
 let isFirestoreLive = false;
 
 try {
-  const firebaseApp = initializeApp(firebaseConfig);
-  db = getFirestore(firebaseApp);
+  if (firebaseConfig.apiKey) {
+    const firebaseApp = initializeApp(firebaseConfig);
+    db = getFirestore(firebaseApp);
+  }
 } catch (e) {
   console.warn("Firebase initialization notice:", e);
 }

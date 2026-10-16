@@ -29,7 +29,7 @@ RECONCILIATION_REPORT_PATH = os.path.join(REPORTS_DIR, 'reconciliation.csv')
 
 # Firebase Configuration
 FIREBASE_PROJECT_ID = os.getenv('FIREBASE_PROJECT_ID', 'pure-energy-lead-router')
-FIREBASE_API_KEY = os.getenv('FIREBASE_API_KEY', 'AIzaSyBW6vdHPwqStPPg67YkZPx-8jZkZ7O_Oqg')
+FIREBASE_API_KEY = os.getenv('FIREBASE_API_KEY', '')
 SERVICE_ACCOUNT_PATH = os.path.join(BASE_DIR, 'serviceAccountKey.json')
 
 # Standard values for normalization

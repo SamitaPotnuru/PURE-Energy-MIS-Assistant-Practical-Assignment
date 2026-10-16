@@ -214,9 +214,13 @@ function saveLeadsStore() {
   }
 }
 
+// Firebase Cloud Firestore REST Configuration
+const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY || '';
+const FIREBASE_PROJECT_ID = process.env.FIREBASE_PROJECT_ID || 'pure-energy-lead-router';
+
 // Background sync dealer to Cloud Firestore via REST API
 async function syncDealerToFirestoreREST(dealer) {
-  if (!dealer || !dealer.dealer_id) return;
+  if (!dealer || !dealer.dealer_id || !FIREBASE_API_KEY) return;
   try {
     const docUrl = `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents/dealers/${encodeURIComponent(dealer.dealer_id)}?key=${FIREBASE_API_KEY}`;
     const body = {
@@ -244,11 +248,8 @@ async function syncDealerToFirestoreREST(dealer) {
 }
 
 // Background sync lead to Cloud Firestore via REST API
-const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY || 'AIzaSyBW6vdHPwqStPPg67YkZPx-8jZkZ7O_Oqg';
-const FIREBASE_PROJECT_ID = process.env.FIREBASE_PROJECT_ID || 'pure-energy-lead-router';
-
 async function syncLeadToFirestoreREST(lead) {
-  if (!lead || !lead.lead_id) return;
+  if (!lead || !lead.lead_id || !FIREBASE_API_KEY) return;
   try {
     const docUrl = `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents/leads/${encodeURIComponent(lead.lead_id)}?key=${FIREBASE_API_KEY}`;
     const body = {

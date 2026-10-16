@@ -20,7 +20,9 @@ const firebaseConfig = {
     ? import.meta.env.VITE_FIREBASE_API_KEY
     : (typeof process !== 'undefined' && process.env?.REACT_APP_FIREBASE_API_KEY)
     ? process.env.REACT_APP_FIREBASE_API_KEY
-    : "AIzaSyBW6vdHPwqStPPg67YkZPx-8jZkZ7O_Oqg",
+    : (typeof window !== 'undefined' && window.__FIREBASE_API_KEY__)
+    ? window.__FIREBASE_API_KEY__
+    : "",
 
   authDomain: typeof import.meta !== 'undefined' && import.meta.env?.VITE_FIREBASE_AUTH_DOMAIN
     ? import.meta.env.VITE_FIREBASE_AUTH_DOMAIN
