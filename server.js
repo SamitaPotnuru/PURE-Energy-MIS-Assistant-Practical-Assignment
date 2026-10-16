@@ -19,8 +19,20 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon'
 };
 
-// Dealers Data Structure
-let dealers = [];
+// Default dealers matching data/dealers.csv for resilient prefix routing
+const DEFAULT_DEALERS = [
+  { dealer_id: 'D01', dealer_name: 'Sri Sai Power Solutions', city: 'Hyderabad', prefixes: ['500'], pincode_prefixes_str: '500', contact_email: 'd01@example.com' },
+  { dealer_id: 'D02', dealer_name: 'Kandi Energy Point', city: 'Sangareddy', prefixes: ['502'], pincode_prefixes_str: '502', contact_email: 'd02@example.com' },
+  { dealer_id: 'D03', dealer_name: 'Warangal Green Systems', city: 'Warangal', prefixes: ['506'], pincode_prefixes_str: '506', contact_email: 'd03@example.com' },
+  { dealer_id: 'D04', dealer_name: 'Karimnagar Solar Hub', city: 'Karimnagar', prefixes: ['505'], pincode_prefixes_str: '505', contact_email: 'd04@example.com' },
+  { dealer_id: 'D05', dealer_name: 'Vizag Home Power', city: 'Visakhapatnam', prefixes: ['530', '531'], pincode_prefixes_str: '530 | 531', contact_email: 'd05@example.com' },
+  { dealer_id: 'D06', dealer_name: 'Krishna Energy Store', city: 'Vijayawada', prefixes: ['520', '521'], pincode_prefixes_str: '520 | 521', contact_email: 'd06@example.com' },
+  { dealer_id: 'D07', dealer_name: 'Guntur Battery World', city: 'Guntur', prefixes: ['522'], pincode_prefixes_str: '522', contact_email: 'd07@example.com' },
+  { dealer_id: 'D08', dealer_name: 'Tirupati PowerHouse', city: 'Tirupati', prefixes: ['517'], pincode_prefixes_str: '517', contact_email: 'd08@example.com' }
+];
+
+// Dealers Data Structure initialized with default dealers
+let dealers = [...DEFAULT_DEALERS];
 // Leads Data Structure
 let leads = [];
 
@@ -44,7 +56,8 @@ function normalizeStatus(status) {
   return 'New';
 }
 
-// Assign Dealer based on pincode prefix
+// Automatically assign dealers using the first three digits of the pincode from data/dealers.csv.
+// If no dealer matches, assign In-house Sales.
 function assignDealer(pincode) {
   if (!pincode) {
     return {
@@ -56,9 +69,18 @@ function assignDealer(pincode) {
     };
   }
   const cleanPin = String(pincode).trim();
+  if (cleanPin.length < 3) {
+    return {
+      dealer_id: 'INHOUSE',
+      dealer_name: 'In-house Sales',
+      city: 'Headquarters',
+      contact_email: 'sales@pureenergy.example',
+      is_inhouse: true
+    };
+  }
   const prefix = cleanPin.substring(0, 3);
-  
-  const matched = dealers.find(d => d.prefixes.includes(prefix));
+  const activeDealers = (dealers && dealers.length > 0) ? dealers : DEFAULT_DEALERS;
+  const matched = activeDealers.find(d => d.prefixes && Array.isArray(d.prefixes) && d.prefixes.includes(prefix));
   if (matched) {
     return {
       dealer_id: matched.dealer_id,

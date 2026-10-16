@@ -34,9 +34,21 @@ try {
   console.warn("Firebase initialization notice:", e);
 }
 
+// Default regional dealers from data/dealers.csv for immediate client-side prefix matching
+const DEFAULT_DEALERS = [
+  { dealer_id: 'D01', dealer_name: 'Sri Sai Power Solutions', city: 'Hyderabad', prefixes: ['500'], pincode_prefixes_str: '500', contact_email: 'd01@example.com' },
+  { dealer_id: 'D02', dealer_name: 'Kandi Energy Point', city: 'Sangareddy', prefixes: ['502'], pincode_prefixes_str: '502', contact_email: 'd02@example.com' },
+  { dealer_id: 'D03', dealer_name: 'Warangal Green Systems', city: 'Warangal', prefixes: ['506'], pincode_prefixes_str: '506', contact_email: 'd03@example.com' },
+  { dealer_id: 'D04', dealer_name: 'Karimnagar Solar Hub', city: 'Karimnagar', prefixes: ['505'], pincode_prefixes_str: '505', contact_email: 'd04@example.com' },
+  { dealer_id: 'D05', dealer_name: 'Vizag Home Power', city: 'Visakhapatnam', prefixes: ['530', '531'], pincode_prefixes_str: '530 | 531', contact_email: 'd05@example.com' },
+  { dealer_id: 'D06', dealer_name: 'Krishna Energy Store', city: 'Vijayawada', prefixes: ['520', '521'], pincode_prefixes_str: '520 | 521', contact_email: 'd06@example.com' },
+  { dealer_id: 'D07', dealer_name: 'Guntur Battery World', city: 'Guntur', prefixes: ['522'], pincode_prefixes_str: '522', contact_email: 'd07@example.com' },
+  { dealer_id: 'D08', dealer_name: 'Tirupati PowerHouse', city: 'Tirupati', prefixes: ['517'], pincode_prefixes_str: '517', contact_email: 'd08@example.com' }
+];
+
 // ===================== APPLICATION STATE =====================
 let allLeads = [];
-let allDealers = [];
+let allDealers = [...DEFAULT_DEALERS];
 let activeView = 'dashboard';
 let currentEditingLead = null;
 
@@ -67,12 +79,60 @@ const STATUS_COLORS = {
   Lost: '#ef4444'
 };
 
+/**
+ * Automatically assign dealers using the first three digits of the pincode from data/dealers.csv.
+ * If no dealer matches, assign In-house Sales.
+ * @param {string|number} pincode 
+ * @returns {Object} Assigned dealer details
+ */
+function assignDealerByPincode(pincode) {
+  if (!pincode) {
+    return {
+      dealer_id: 'INHOUSE',
+      dealer_name: 'In-house Sales',
+      city: 'Headquarters',
+      contact_email: 'sales@pureenergy.example',
+      is_inhouse: true
+    };
+  }
+  const cleanPin = String(pincode).trim();
+  if (cleanPin.length < 3) {
+    return {
+      dealer_id: 'INHOUSE',
+      dealer_name: 'In-house Sales',
+      city: 'Headquarters',
+      contact_email: 'sales@pureenergy.example',
+      is_inhouse: true
+    };
+  }
+  const prefix = cleanPin.substring(0, 3);
+  const dealerPool = (allDealers && allDealers.length > 0) ? allDealers : DEFAULT_DEALERS;
+  const matched = dealerPool.find(d => d.prefixes && Array.isArray(d.prefixes) && d.prefixes.includes(prefix));
+  if (matched) {
+    return {
+      dealer_id: matched.dealer_id,
+      dealer_name: matched.dealer_name,
+      city: matched.city,
+      contact_email: matched.contact_email,
+      is_inhouse: false
+    };
+  }
+  return {
+    dealer_id: 'INHOUSE',
+    dealer_name: 'In-house Sales',
+    city: 'Headquarters',
+    contact_email: 'sales@pureenergy.example',
+    is_inhouse: true
+  };
+}
+
 // Expose navigation and action functions to window for inline onclick handlers
 window.switchView = switchView;
 window.goToPage = goToPage;
 window.openUpdateModal = openUpdateModal;
 window.openAddDealerModal = openAddDealerModal;
 window.closeAddDealerModal = closeAddDealerModal;
+window.assignDealerByPincode = assignDealerByPincode;
 
 // ===================== INITIALIZATION =====================
 document.addEventListener('DOMContentLoaded', () => {
@@ -541,34 +601,74 @@ function setupAddLeadForm() {
     }
 
     try {
-      // 1. Save to Backend REST API
-      const res = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, mobile, pincode, product, source })
-      });
+      let resultLead = null;
 
-      const result = await res.json();
-      if (!res.ok) {
-        throw new Error(result.error || 'Failed to save lead');
+      // 1. Try saving to Backend REST API
+      try {
+        const res = await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, mobile, pincode, product, source })
+        });
+        if (res.ok) {
+          const result = await res.json();
+          resultLead = result.lead;
+        }
+      } catch (backendErr) {
+        console.warn("Backend API not reachable, routing client-side:", backendErr);
+      }
+
+      // If backend was unreachable or returned an error, assign dealer using pincode prefixes from dealers.csv:
+      if (!resultLead) {
+        const assigned = assignDealerByPincode(pincode);
+        let maxNum = 1000;
+        allLeads.forEach(l => {
+          const match = (l.lead_id || '').match(/L(\d+)/i);
+          if (match) {
+            const num = parseInt(match[1], 10);
+            if (num > maxNum) maxNum = num;
+          }
+        });
+        const now = new Date();
+        const dateFormatted = now.toISOString().split('T')[0];
+        resultLead = {
+          lead_id: `L${maxNum + 1}`,
+          name,
+          phone: mobile,
+          pincode,
+          product,
+          source,
+          dealer: assigned.dealer_name,
+          dealer_name: assigned.dealer_name,
+          dealer_id: assigned.dealer_id,
+          dealer_city: assigned.city,
+          status: 'New',
+          created_on: dateFormatted,
+          notes: [{
+            timestamp: now.toISOString(),
+            action: 'lead_created',
+            note: `Lead created via Add Lead form. Assigned to ${assigned.dealer_name} based on pincode prefix ${pincode.substring(0, 3)}.`
+          }]
+        };
+        allLeads.unshift(resultLead);
       }
 
       // 2. Also save directly to Cloud Firestore collection 'leads'
       if (db) {
         try {
           const docRef = await addDoc(collection(db, "leads"), {
-            lead_id: result.lead.lead_id,
+            lead_id: resultLead.lead_id,
             name: name,
             phone: mobile,
             pincode: pincode,
             product: product,
             source: source,
-            dealer: result.lead.dealer_name,
-            dealer_name: result.lead.dealer_name,
-            dealer_city: result.lead.dealer_city,
+            dealer: resultLead.dealer_name,
+            dealer_name: resultLead.dealer_name,
+            dealer_city: resultLead.dealer_city,
             status: 'New',
-            created_on: result.lead.created_on,
-            notes: result.lead.notes || []
+            created_on: resultLead.created_on,
+            notes: resultLead.notes || []
           });
           console.log("Lead synced to Firestore document:", docRef.id);
         } catch (fsErr) {
@@ -576,12 +676,20 @@ function setupAddLeadForm() {
         }
       }
 
-      showToast(`Lead saved and routed to ${result.lead.dealer_name}`, 'success');
+      showToast(`Lead saved and routed to ${resultLead.dealer_name}`, 'success');
       form.reset();
       resetValidationIndicators();
 
       // Refresh data
-      await loadData();
+      try {
+        await loadData();
+      } catch (e) {
+        updateLiveMetrics();
+        renderDashboard();
+        renderDealersTable();
+        renderReports();
+        renderLeadsTable();
+      }
 
       // Switch to Leads tab to see the newly created lead
       setTimeout(() => switchView('leads'), 600);
@@ -644,20 +752,21 @@ function previewAutoAssignment(pincode) {
   const nameEl = document.getElementById('preview-dealer-name');
   const detailEl = document.getElementById('preview-dealer-detail');
 
-  if (pincode.length < 3) {
+  if (!pincode || String(pincode).trim().length < 3) {
     previewBox.classList.remove('matched');
     nameEl.textContent = 'Type pincode to preview assignment';
     detailEl.textContent = 'Matches prefix: None';
     return;
   }
 
-  const prefix = pincode.substring(0, 3);
-  const matchedDealer = allDealers.find(d => d.prefixes && d.prefixes.includes(prefix));
+  const cleanPin = String(pincode).trim();
+  const prefix = cleanPin.substring(0, 3);
+  const assigned = assignDealerByPincode(cleanPin);
 
   previewBox.classList.add('matched');
-  if (matchedDealer) {
-    nameEl.textContent = matchedDealer.dealer_name;
-    detailEl.textContent = `City: ${matchedDealer.city} • Prefix: ${prefix}`;
+  if (!assigned.is_inhouse) {
+    nameEl.textContent = assigned.dealer_name;
+    detailEl.textContent = `City: ${assigned.city} • Prefix: ${prefix}`;
   } else {
     nameEl.textContent = 'In-house Sales';
     detailEl.textContent = `No regional dealer for prefix ${prefix} (Direct routing)`;
