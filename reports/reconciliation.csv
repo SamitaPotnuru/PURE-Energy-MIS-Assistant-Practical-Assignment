@@ -1,0 +1,41 @@
+lead_id,action,reason
+L1001,imported,Valid record imported without changes
+L1002,imported,Valid record imported without changes
+L1003,imported,Valid record imported without changes
+L1004,fixed,Normalized phone number format
+L1005,imported,Valid record imported without changes
+L1006,fixed,Normalized phone number format
+L1007,imported,Valid record imported without changes
+L1008,imported,Valid record imported without changes
+L1009,rejected,Invalid mobile number: must be 10 digits (got 5 digits: '12345')
+L1010,imported,Valid record imported without changes
+L1011,imported,Valid record imported without changes
+L1012,rejected,Invalid pincode: must be 6 digits (got: '5000')
+L1013,imported,Valid record imported without changes
+L1014,imported,Valid record imported without changes
+L1015,assigned_inhouse,Assigned to In-house Sales (no regional dealer mapped for pincode prefix 110)
+L1016,imported,Valid record imported without changes
+L1017,imported,Valid record imported without changes
+L1018,fixed,Normalized date from '31/09/2026' to '2026-09-30'
+L1019,imported,Valid record imported without changes
+L1020,fixed,Normalized status to 'converted'
+L1021,imported,Valid record imported without changes
+L1022,imported,Valid record imported without changes
+L1023,fixed,Normalized product name to 'purepower home 5kwh'
+L1024,imported,Valid record imported without changes
+L1025,imported,Valid record imported without changes
+L1026,rejected,Missing required customer name
+L1027,imported,Valid record imported without changes
+L1028,fixed,Normalized source casing to 'website'
+L1029,imported,Valid record imported without changes
+L1030,imported,Valid record imported without changes
+L1031,imported,Valid record imported without changes
+L1032,imported,Valid record imported without changes
+L1033,imported,Valid record imported without changes
+L1034,imported,Valid record imported without changes
+L1035,imported,Valid record imported without changes
+L1036,merged,Duplicate customer record merged with L1003
+L1037,merged,Duplicate customer record merged with L1010
+L1038,merged,Duplicate customer record merged with L1031
+L1039,merged,Duplicate customer record merged with L1007
+L1033,merged,Duplicate customer record merged with L1013

@@ -1,0 +1,932 @@
+[
+  {
+    "lead_id": "L1043",
+    "name": "saas",
+    "phone": "7840236595",
+    "raw_phone": "7840236595",
+    "pincode": "522222",
+    "product": "PuREPower Home 3kWh",
+    "source": "Voice Agent",
+    "created_on": "2026-10-16",
+    "status": "New",
+    "dealer_id": "D07",
+    "dealer_name": "Guntur Battery World",
+    "dealer_city": "Guntur",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T08:00:53.510Z",
+        "status": "New",
+        "note": "Lead created via Add Lead form. Assigned to Guntur Battery World based on pincode prefix 522."
+      }
+    ]
+  },
+  {
+    "lead_id": "L1042",
+    "name": "saas",
+    "phone": "7840236521",
+    "raw_phone": "7840236521",
+    "pincode": "253000",
+    "product": "PuREPower Home 5kWh",
+    "source": "Dealer Walk-in",
+    "created_on": "2026-10-16",
+    "status": "New",
+    "dealer_id": "INHOUSE",
+    "dealer_name": "In-house Sales",
+    "dealer_city": "Headquarters",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:48:54.328Z",
+        "status": "New",
+        "note": "Lead created via Add Lead form. Assigned to In-house Sales based on pincode prefix 253."
+      }
+    ]
+  },
+  {
+    "lead_id": "L1041",
+    "name": "saas",
+    "phone": "7840236591",
+    "raw_phone": "7840236591",
+    "pincode": "530022",
+    "product": "PuREPower Home 3kWh",
+    "source": "Referral",
+    "created_on": "2026-10-16",
+    "status": "New",
+    "dealer_id": "D05",
+    "dealer_name": "Vizag Home Power",
+    "dealer_city": "Visakhapatnam",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:39:46.540Z",
+        "status": "New",
+        "note": "Lead created via Add Lead form. Assigned to Vizag Home Power based on pincode prefix 530."
+      }
+    ]
+  },
+  {
+    "lead_id": "L1040",
+    "name": "saas",
+    "phone": "7840236598",
+    "raw_phone": "7840236598",
+    "pincode": "530022",
+    "product": "PuREPower Home 5kWh",
+    "source": "WhatsApp",
+    "created_on": "2026-10-16",
+    "status": "New",
+    "dealer_id": "D05",
+    "dealer_name": "Vizag Home Power",
+    "dealer_city": "Visakhapatnam",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:38:47.927Z",
+        "status": "New",
+        "note": "Lead created via Add Lead form. Assigned to Vizag Home Power based on pincode prefix 530."
+      }
+    ]
+  },
+  {
+    "lead_id": "L1001",
+    "name": "Ravi Kumar",
+    "phone": "9447712782",
+    "raw_phone": "9447712782",
+    "pincode": "502285",
+    "product": "PuREPower Home 5kWh",
+    "source": "Website",
+    "created_on": "2026-09-03",
+    "status": "New",
+    "dealer_id": "D02",
+    "dealer_name": "Kandi Energy Point",
+    "dealer_city": "Sangareddy",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.889Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1002",
+    "name": "Lakshmi Devi",
+    "phone": "9492655486",
+    "raw_phone": "9492655486",
+    "pincode": "521137",
+    "product": "PuREPower Home 3kWh",
+    "source": "Voice Agent",
+    "created_on": "2026-09-02",
+    "status": "New",
+    "dealer_id": "D06",
+    "dealer_name": "Krishna Energy Store",
+    "dealer_city": "Vijayawada",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.890Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1003",
+    "name": "Suresh Reddy",
+    "phone": "9565623510",
+    "raw_phone": "9565623510",
+    "pincode": "530016",
+    "product": "PuREPower Home 3kWh",
+    "source": "Voice Agent",
+    "created_on": "2026-09-03",
+    "status": "Lost",
+    "dealer_id": "D05",
+    "dealer_name": "Vizag Home Power",
+    "dealer_city": "Visakhapatnam",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.890Z",
+        "status": "Lost",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1004",
+    "name": "Anitha Rao",
+    "phone": "9848022431",
+    "raw_phone": "98480 22 431",
+    "pincode": "502319",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "Website",
+    "created_on": "2026-09-08",
+    "status": "New",
+    "dealer_id": "D02",
+    "dealer_name": "Kandi Energy Point",
+    "dealer_city": "Sangareddy",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.890Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1005",
+    "name": "Mahesh Goud",
+    "phone": "9719659571",
+    "raw_phone": "9719659571",
+    "pincode": "521137",
+    "product": "PuREPower Home 5kWh",
+    "source": "Website",
+    "created_on": "2026-09-08",
+    "status": "New",
+    "dealer_id": "D06",
+    "dealer_name": "Krishna Energy Store",
+    "dealer_city": "Vijayawada",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.890Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1006",
+    "name": "Swathi K",
+    "phone": "9000012345",
+    "raw_phone": "+91-9000012345",
+    "pincode": "502319",
+    "product": "PuREPower Home 3kWh",
+    "source": "Dealer Walk-in",
+    "created_on": "2026-09-14",
+    "status": "Contacted",
+    "dealer_id": "D02",
+    "dealer_name": "Kandi Energy Point",
+    "dealer_city": "Sangareddy",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.890Z",
+        "status": "Contacted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1007",
+    "name": "Prakash N",
+    "phone": "9680557051",
+    "raw_phone": "9680557051",
+    "pincode": "500081",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "Dealer Walk-in",
+    "created_on": "2026-09-18",
+    "status": "Contacted",
+    "dealer_id": "D01",
+    "dealer_name": "Sri Sai Power Solutions",
+    "dealer_city": "Hyderabad",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Contacted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1008",
+    "name": "Kavitha M",
+    "phone": "9210655224",
+    "raw_phone": "9210655224",
+    "pincode": "521137",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "Voice Agent",
+    "created_on": "2026-09-12",
+    "status": "New",
+    "dealer_id": "D06",
+    "dealer_name": "Krishna Energy Store",
+    "dealer_city": "Vijayawada",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1009",
+    "name": "Venkatesh B",
+    "phone": "12345",
+    "raw_phone": "12345",
+    "pincode": "517501",
+    "product": "PuREPower Home 3kWh",
+    "source": "Website",
+    "created_on": "2026-09-20",
+    "status": "Contacted",
+    "dealer_id": "D08",
+    "dealer_name": "Tirupati PowerHouse",
+    "dealer_city": "Tirupati",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Contacted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1010",
+    "name": "Sridevi P",
+    "phone": "9633021001",
+    "raw_phone": "9633021001",
+    "pincode": "522002",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "WhatsApp",
+    "created_on": "2026-09-25",
+    "status": "Contacted",
+    "dealer_id": "D07",
+    "dealer_name": "Guntur Battery World",
+    "dealer_city": "Guntur",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Converted",
+        "note": "Initial import from legacy leads system"
+      },
+      {
+        "timestamp": "2026-10-16T07:39:03.101Z",
+        "previous_status": "Converted",
+        "new_status": "Contacted",
+        "note": "ss"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1011",
+    "name": "Naresh Yadav",
+    "phone": "9599936196",
+    "raw_phone": "9599936196",
+    "pincode": "521137",
+    "product": "PuREPower Home 5kWh",
+    "source": "Dealer Walk-in",
+    "created_on": "2026-09-10",
+    "status": "Contacted",
+    "dealer_id": "D06",
+    "dealer_name": "Krishna Energy Store",
+    "dealer_city": "Vijayawada",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Contacted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1012",
+    "name": "Padma S",
+    "phone": "9952958473",
+    "raw_phone": "9952958473",
+    "pincode": "5000",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "Voice Agent",
+    "created_on": "2026-09-03",
+    "status": "Converted",
+    "dealer_id": "D01",
+    "dealer_name": "Sri Sai Power Solutions",
+    "dealer_city": "Hyderabad",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Converted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1013",
+    "name": "Kiran Kumar",
+    "phone": "9663925448",
+    "raw_phone": "9663925448",
+    "pincode": "531001",
+    "product": "PuREPower Home 5kWh",
+    "source": "WhatsApp",
+    "created_on": "2026-09-10",
+    "status": "New",
+    "dealer_id": "D05",
+    "dealer_name": "Vizag Home Power",
+    "dealer_city": "Visakhapatnam",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1014",
+    "name": "Bhavani T",
+    "phone": "9226772164",
+    "raw_phone": "9226772164",
+    "pincode": "520010",
+    "product": "PuREPower Home 5kWh",
+    "source": "Voice Agent",
+    "created_on": "2026-09-25",
+    "status": "Converted",
+    "dealer_id": "D06",
+    "dealer_name": "Krishna Energy Store",
+    "dealer_city": "Vijayawada",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Converted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1015",
+    "name": "Rajesh Varma",
+    "phone": "9263192149",
+    "raw_phone": "9263192149",
+    "pincode": "110001",
+    "product": "PuREPower Home 5kWh",
+    "source": "Website",
+    "created_on": "2026-09-22",
+    "status": "New",
+    "dealer_id": "INHOUSE",
+    "dealer_name": "In-house Sales",
+    "dealer_city": "Headquarters",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1016",
+    "name": "Sunitha G",
+    "phone": "9920951719",
+    "raw_phone": "9920951719",
+    "pincode": "520010",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "Dealer Walk-in",
+    "created_on": "2026-09-11",
+    "status": "Converted",
+    "dealer_id": "D06",
+    "dealer_name": "Krishna Energy Store",
+    "dealer_city": "Vijayawada",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Converted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1017",
+    "name": "Harish Chandra",
+    "phone": "9738199795",
+    "raw_phone": "9738199795",
+    "pincode": "531001",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "WhatsApp",
+    "created_on": "2026-09-03",
+    "status": "New",
+    "dealer_id": "D05",
+    "dealer_name": "Vizag Home Power",
+    "dealer_city": "Visakhapatnam",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1018",
+    "name": "Madhavi L",
+    "phone": "9389845088",
+    "raw_phone": "9389845088",
+    "pincode": "531001",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "Website",
+    "created_on": "31/09/2026",
+    "status": "Converted",
+    "dealer_id": "D05",
+    "dealer_name": "Vizag Home Power",
+    "dealer_city": "Visakhapatnam",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Converted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1019",
+    "name": "Srinivas Rao",
+    "phone": "9794849312",
+    "raw_phone": "9794849312",
+    "pincode": "521137",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "WhatsApp",
+    "created_on": "2026-09-10",
+    "status": "Lost",
+    "dealer_id": "D06",
+    "dealer_name": "Krishna Energy Store",
+    "dealer_city": "Vijayawada",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Lost",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1020",
+    "name": "Jyothi R",
+    "phone": "9817960391",
+    "raw_phone": "9817960391",
+    "pincode": "505001",
+    "product": "PuREPower Home 3kWh",
+    "source": "WhatsApp",
+    "created_on": "2026-09-12",
+    "status": "Converted",
+    "dealer_id": "D04",
+    "dealer_name": "Karimnagar Solar Hub",
+    "dealer_city": "Karimnagar",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Converted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1021",
+    "name": "Ramesh Babu",
+    "phone": "9755969870",
+    "raw_phone": "9755969870",
+    "pincode": "500081",
+    "product": "PuREPower Home 5kWh",
+    "source": "Website",
+    "created_on": "2026-09-07",
+    "status": "Converted",
+    "dealer_id": "D01",
+    "dealer_name": "Sri Sai Power Solutions",
+    "dealer_city": "Hyderabad",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Converted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1022",
+    "name": "Divya Sree",
+    "phone": "9238878003",
+    "raw_phone": "9238878003",
+    "pincode": "517501",
+    "product": "PuREPower Home 3kWh",
+    "source": "WhatsApp",
+    "created_on": "2026-09-13",
+    "status": "Lost",
+    "dealer_id": "D08",
+    "dealer_name": "Tirupati PowerHouse",
+    "dealer_city": "Tirupati",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Lost",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1023",
+    "name": "Anil Kumar",
+    "phone": "9186523513",
+    "raw_phone": "9186523513",
+    "pincode": "502285",
+    "product": "Pure power 5 kwh",
+    "source": "WhatsApp",
+    "created_on": "2026-09-18",
+    "status": "Converted",
+    "dealer_id": "D02",
+    "dealer_name": "Kandi Energy Point",
+    "dealer_city": "Sangareddy",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Converted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1024",
+    "name": "Saritha V",
+    "phone": "9247023327",
+    "raw_phone": "9247023327",
+    "pincode": "502319",
+    "product": "PuREPower Home 5kWh",
+    "source": "Dealer Walk-in",
+    "created_on": "2026-09-23",
+    "status": "Lost",
+    "dealer_id": "D02",
+    "dealer_name": "Kandi Energy Point",
+    "dealer_city": "Sangareddy",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Lost",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1025",
+    "name": "Gopal Krishna",
+    "phone": "9485227600",
+    "raw_phone": "9485227600",
+    "pincode": "522002",
+    "product": "PuREPower Home 5kWh",
+    "source": "Voice Agent",
+    "created_on": "2026-09-05",
+    "status": "New",
+    "dealer_id": "D07",
+    "dealer_name": "Guntur Battery World",
+    "dealer_city": "Guntur",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1026",
+    "name": "Unknown Customer",
+    "phone": "9289212348",
+    "raw_phone": "9289212348",
+    "pincode": "502285",
+    "product": "PuREPower Home 3kWh",
+    "source": "Voice Agent",
+    "created_on": "2026-09-01",
+    "status": "Lost",
+    "dealer_id": "D02",
+    "dealer_name": "Kandi Energy Point",
+    "dealer_city": "Sangareddy",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Lost",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1027",
+    "name": "Vamsi Krishna",
+    "phone": "9992379915",
+    "raw_phone": "9992379915",
+    "pincode": "521137",
+    "product": "PuREPower Home 3kWh",
+    "source": "Dealer Walk-in",
+    "created_on": "2026-09-10",
+    "status": "New",
+    "dealer_id": "D06",
+    "dealer_name": "Krishna Energy Store",
+    "dealer_city": "Vijayawada",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1028",
+    "name": "Hema Latha",
+    "phone": "9256418835",
+    "raw_phone": "9256418835",
+    "pincode": "530016",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "website",
+    "created_on": "2026-09-20",
+    "status": "Converted",
+    "dealer_id": "D05",
+    "dealer_name": "Vizag Home Power",
+    "dealer_city": "Visakhapatnam",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Converted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1029",
+    "name": "Chandra Sekhar",
+    "phone": "9234745481",
+    "raw_phone": "9234745481",
+    "pincode": "517501",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "Website",
+    "created_on": "2026-09-15",
+    "status": "Lost",
+    "dealer_id": "D08",
+    "dealer_name": "Tirupati PowerHouse",
+    "dealer_city": "Tirupati",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Lost",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1030",
+    "name": "Rekha N",
+    "phone": "9527424008",
+    "raw_phone": "9527424008",
+    "pincode": "530016",
+    "product": "PuREPower Home 5kWh",
+    "source": "Website",
+    "created_on": "2026-09-16",
+    "status": "Lost",
+    "dealer_id": "D05",
+    "dealer_name": "Vizag Home Power",
+    "dealer_city": "Visakhapatnam",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Lost",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1031",
+    "name": "Satish P",
+    "phone": "9166838090",
+    "raw_phone": "9166838090",
+    "pincode": "502032",
+    "product": "PuREPower Home 3kWh",
+    "source": "Voice Agent",
+    "created_on": "2026-09-15",
+    "status": "Contacted",
+    "dealer_id": "D02",
+    "dealer_name": "Kandi Energy Point",
+    "dealer_city": "Sangareddy",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Contacted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1032",
+    "name": "Pavani D",
+    "phone": "9218034622",
+    "raw_phone": "9218034622",
+    "pincode": "505001",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "Website",
+    "created_on": "2026-09-04",
+    "status": "New",
+    "dealer_id": "D04",
+    "dealer_name": "Karimnagar Solar Hub",
+    "dealer_city": "Karimnagar",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1033",
+    "name": "Mohan Rao",
+    "phone": "9708579269",
+    "raw_phone": "9708579269",
+    "pincode": "502285",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "Website",
+    "created_on": "2026-09-12",
+    "status": "New",
+    "dealer_id": "D02",
+    "dealer_name": "Kandi Energy Point",
+    "dealer_city": "Sangareddy",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1034",
+    "name": "Lavanya K",
+    "phone": "9175500775",
+    "raw_phone": "9175500775",
+    "pincode": "502319",
+    "product": "PuREPower Home 3kWh",
+    "source": "WhatsApp",
+    "created_on": "2026-09-05",
+    "status": "Converted",
+    "dealer_id": "D02",
+    "dealer_name": "Kandi Energy Point",
+    "dealer_city": "Sangareddy",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Converted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1035",
+    "name": "Shankar G",
+    "phone": "9473006684",
+    "raw_phone": "9473006684",
+    "pincode": "521137",
+    "product": "PuREPower Home 5kWh",
+    "source": "WhatsApp",
+    "created_on": "2026-09-04",
+    "status": "New",
+    "dealer_id": "D06",
+    "dealer_name": "Krishna Energy Store",
+    "dealer_city": "Vijayawada",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1036",
+    "name": "Suresh Reddy",
+    "phone": "9565623510",
+    "raw_phone": "9565623510",
+    "pincode": "530016",
+    "product": "PuREPower Home 3kWh",
+    "source": "Voice Agent",
+    "created_on": "2026-09-28",
+    "status": "Lost",
+    "dealer_id": "D05",
+    "dealer_name": "Vizag Home Power",
+    "dealer_city": "Visakhapatnam",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Lost",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1037",
+    "name": "Sridevi P",
+    "phone": "9633021001",
+    "raw_phone": "+91 9633021001",
+    "pincode": "522002",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "WhatsApp",
+    "created_on": "2026-09-25",
+    "status": "Converted",
+    "dealer_id": "D07",
+    "dealer_name": "Guntur Battery World",
+    "dealer_city": "Guntur",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Converted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1038",
+    "name": "SATISH P",
+    "phone": "9166838090",
+    "raw_phone": "9166838090",
+    "pincode": "502032",
+    "product": "PuREPower Home 3kWh",
+    "source": "Voice Agent",
+    "created_on": "2026-09-15",
+    "status": "Contacted",
+    "dealer_id": "D02",
+    "dealer_name": "Kandi Energy Point",
+    "dealer_city": "Sangareddy",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Contacted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1039",
+    "name": "Prakash N",
+    "phone": "9680557051",
+    "raw_phone": "9680557051",
+    "pincode": "500081",
+    "product": "PuREPower Commercial 10kWh",
+    "source": "Dealer Walk-in",
+    "created_on": "2026-09-18",
+    "status": "Contacted",
+    "dealer_id": "D01",
+    "dealer_name": "Sri Sai Power Solutions",
+    "dealer_city": "Hyderabad",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "Contacted",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  },
+  {
+    "lead_id": "L1033",
+    "name": "Kiran Kumar",
+    "phone": "9663925448",
+    "raw_phone": "9663925448",
+    "pincode": "531001",
+    "product": "PuREPower Home 5kWh",
+    "source": "WhatsApp",
+    "created_on": "2026-09-10",
+    "status": "New",
+    "dealer_id": "D05",
+    "dealer_name": "Vizag Home Power",
+    "dealer_city": "Visakhapatnam",
+    "notes": [
+      {
+        "timestamp": "2026-10-16T07:37:15.891Z",
+        "status": "New",
+        "note": "Initial import from legacy leads system"
+      }
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Allow read and write to leads collection
+    match /leads/{leadId} {
+      allow read: if true;
+      allow create: if request.resource.data.name is string
+                    && request.resource.data.phone is string
+                    && request.resource.data.pincode is string;
+      allow update: if request.resource.data.status in ['New', 'Contacted', 'Converted', 'Lost'];
+      allow delete: if false;
+    }
+
+    // Allow read to dealers collection
+    match /dealers/{dealerId} {
+      allow read: if true;
+      allow write: if false; // Dealers are read-only for client app
+    }
+
+    // Default rule: block all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

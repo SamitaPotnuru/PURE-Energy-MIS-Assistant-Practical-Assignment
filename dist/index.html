@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURE Energy — Dealer Lead Router</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?f
+  amily=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-logo">
+          <svg class="bolt-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+          </svg>
+          <div class="brand-text">
+            <span class="brand-title">PURE Energy</span>
+            <span class="brand-subtitle">Dealer Lead Router</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-view="dashboard" id="nav-dashboard">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Dashboard</span>
+        </button>
+
+        <button class="nav-item" data-view="add-lead" id="nav-add-lead">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="12" y1="8" x2="12" y2="16"></line>
+            <line x1="8" y1="12" x2="16" y2="12"></line>
+          </svg>
+          <span>Add Lead</span>
+        </button>
+
+        <button class="nav-item" data-view="leads" id="nav-leads">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+          <span>Leads</span>
+        </button>
+
+        <button class="nav-item" data-view="dealers" id="nav-dealers">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <span>Dealers</span>
+        </button>
+
+        <button class="nav-item" data-view="reports" id="nav-reports">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>Reports</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="footer-tag">
+          <svg class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+          </svg>
+          <div>
+            <div class="footer-title">Clean Energy</div>
+            <div class="footer-sub">Better Tomorrow</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <span class="topbar-title">Dealer Lead Router</span>
+        </div>
+        <div class="topbar-right">
+          <div class="firebase-status-pill" id="firebase-status-pill" title="Firebase Firestore Connection">
+            <span class="status-dot-pulse"></span>
+            <span id="firebase-status-text">Firestore: Connecting...</span>
+          </div>
+          <span class="topbar-date" id="live-datetime">Apr 29, 2026 &nbsp; 11:24 AM</span>
+          <button class="btn-refresh" id="btn-refresh" title="Refresh Live Data">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+              <path d="M23 4v6h-6"></path>
+              <path d="M1 20v-6h6"></path>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- View Container -->
+      <div class="content-container">
+
+        <!-- 1. DASHBOARD VIEW -->
+        <section id="view-dashboard" class="view-section active">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Dashboard</h1>
+              <p class="page-subtitle">Overview of your leads and performance</p>
+            </div>
+          </div>
+
+          <!-- 5 Metric Cards -->
+          <div class="metric-grid">
+            <div class="metric-card metric-total">
+              <div class="metric-icon-box bg-blue-subtle text-blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+              </div>
+              <div class="metric-details">
+                <span class="metric-label">Total Leads</span>
+                <span class="metric-value" id="stat-total">40</span>
+              </div>
+            </div>
+
+            <div class="metric-card metric-new">
+              <div class="metric-icon-box bg-amber-subtle text-amber">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <div class="metric-details">
+                <span class="metric-label">New</span>
+                <span class="metric-value" id="stat-new">12</span>
+              </div>
+            </div>
+
+            <div class="metric-card metric-contacted">
+              <div class="metric-icon-box bg-purple-subtle text-purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <div class="metric-details">
+                <span class="metric-label">Contacted</span>
+                <span class="metric-value" id="stat-contacted">15</span>
+              </div>
+            </div>
+
+            <div class="metric-card metric-converted">
+              <div class="metric-icon-box bg-emerald-subtle text-emerald">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+              </div>
+              <div class="metric-details">
+                <span class="metric-label">Converted</span>
+                <span class="metric-value" id="stat-converted">9</span>
+              </div>
+            </div>
+
+            <div class="metric-card metric-lost">
+              <div class="metric-icon-box bg-rose-subtle text-rose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="15" y1="9" x2="9" y2="15"></line>
+                  <line x1="9" y1="9" x2="15" y2="15"></line>
+                </svg>
+              </div>
+              <div class="metric-details">
+                <span class="metric-label">Lost</span>
+                <span class="metric-value" id="stat-lost">4</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div class="charts-grid">
+            <!-- Left Chart: Leads by Dealer -->
+            <div class="card chart-card">
+              <div class="card-header">
+                <h3 class="card-title">Leads by Dealer</h3>
+                <button class="link-btn" onclick="switchView('dealers')">View Table &rarr;</button>
+              </div>
+              <div class="card-body dealer-chart-container">
+                <div class="chart-canvas-wrapper">
+                  <svg id="dealer-bar-chart" class="svg-chart" viewBox="0 0 380 230"></svg>
+                </div>
+                <div class="chart-legend" id="dealer-chart-legend">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Chart: Leads by Status -->
+            <div class="card chart-card">
+              <div class="card-header">
+                <h3 class="card-title">Leads by Status</h3>
+                <button class="link-btn" onclick="switchView('reports')">View Details &rarr;</button>
+              </div>
+              <div class="card-body status-chart-container">
+                <div class="donut-wrapper">
+                  <svg id="status-donut-chart" class="svg-donut" viewBox="0 0 240 240"></svg>
+                  <div class="donut-center-info">
+                    <span class="donut-total" id="donut-total-count">40</span>
+                    <span class="donut-sublabel">Total Leads</span>
+                  </div>
+                </div>
+                <div class="status-legend" id="status-donut-legend">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. ADD LEAD VIEW -->
+        <section id="view-add-lead" class="view-section">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Add New Lead</h1>
+              <p class="page-subtitle">Enter customer details to create a new lead</p>
+            </div>
+          </div>
+
+          <div class="add-lead-layout">
+            <!-- Left: Lead Form -->
+            <div class="card form-card">
+              <div class="card-header">
+                <h3 class="card-title">Lead Information</h3>
+              </div>
+              <form id="add-lead-form" class="card-body" novalidate>
+                <div class="form-group">
+                  <label for="lead-name">Name <span class="required">*</span></label>
+                  <input type="text" id="lead-name" class="form-control" placeholder="Enter customer name" required>
+                  <span class="form-hint error-hint" id="err-name"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="lead-mobile">Mobile Number <span class="required">*</span></label>
+                  <input type="tel" id="lead-mobile" class="form-control" placeholder="Enter 10 digit mobile number"
+                    maxlength="10" required>
+                  <span class="form-hint error-hint" id="err-mobile"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="lead-pincode">Pincode <span class="required">*</span></label>
+                  <input type="text" id="lead-pincode" class="form-control" placeholder="Enter 6 digit pincode"
+                    maxlength="6" required>
+                  <span class="form-hint error-hint" id="err-pincode"></span>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-half">
+                    <label for="lead-product">Product <span class="required">*</span></label>
+                    <select id="lead-product" class="form-control" required>
+                      <option value="" disabled selected>Select product</option>
+                      <option value="PuREPower Home 3kWh">PuREPower Home 3kWh</option>
+                      <option value="PuREPower Home 5kWh">PuREPower Home 5kWh</option>
+                      <option value="PuREPower Commercial 10kWh">PuREPower Commercial 10kWh</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-half">
+                    <label for="lead-source">Source <span class="required">*</span></label>
+                    <select id="lead-source" class="form-control" required>
+                      <option value="" disabled selected>Select source</option>
+                      <option value="Website">Website</option>
+                      <option value="Voice Agent">Voice Agent</option>
+                      <option value="Dealer Walk-in">Dealer Walk-in</option>
+                      <option value="WhatsApp">WhatsApp</option>
+                      <option value="Referral">Referral</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary btn-save" id="btn-save-lead">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                      <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                      <polyline points="7 3 7 8 15 8"></polyline>
+                    </svg>
+                    Save Lead
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Right Column: Auto Assignment & Validation Rules -->
+            <div class="form-side-column">
+              <!-- Auto Assignment Box -->
+              <div class="card side-card auto-assign-card">
+                <div class="side-card-header">
+                  <div class="side-card-icon blue-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <circle cx="12" cy="12" r="6"></circle>
+                      <circle cx="12" cy="12" r="2"></circle>
+                    </svg>
+                  </div>
+                  <h4 class="side-card-title">Auto Assignment</h4>
+                </div>
+                <p class="side-card-desc">Dealer will be assigned automatically based on the first 3 digits of the
+                  pincode.</p>
+                <div class="assignment-preview-box" id="assignment-preview">
+                  <div class="preview-badge-label">Live Routing Preview:</div>
+                  <div class="preview-result" id="preview-dealer-name">Type pincode to preview assignment</div>
+                  <div class="preview-subtext" id="preview-dealer-detail">Matches prefix: None</div>
+                </div>
+              </div>
+
+              <!-- Validation Rules Box -->
+              <div class="card side-card validation-card">
+                <h4 class="side-card-title">Validation Rules</h4>
+                <ul class="validation-rules-list">
+                  <li id="rule-mobile" class="rule-item">
+                    <span class="rule-icon">&#10003;</span>
+                    <span>Mobile number must be 10 digits</span>
+                  </li>
+                  <li id="rule-pincode" class="rule-item">
+                    <span class="rule-icon">&#10003;</span>
+                    <span>Pincode must be 6 digits</span>
+                  </li>
+                  <li id="rule-duplicate" class="rule-item">
+                    <span class="rule-icon">&#10003;</span>
+                    <span>Duplicate mobile numbers are not allowed</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. LEADS BY DEALER VIEW -->
+        <section id="view-dealers" class="view-section">
+          <div class="page-header flex-between">
+            <div>
+              <h1 class="page-title">Leads by Dealer</h1>
+              <p class="page-subtitle">Total leads grouped by dealer</p>
+            </div>
+            <div class="header-action-group">
+              <div class="date-filter-pill">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span id="dealer-date-range">Apr 1, 2026 - Apr 29, 2026</span>
+              </div>
+              <button type="button" class="btn btn-primary" id="btn-open-add-dealer" onclick="openAddDealerModal()">
+                + Add Dealer
+              </button>
+            </div>
+          </div>
+
+          <div class="card table-card">
+            <div class="table-responsive">
+              <table class="data-table" id="dealers-summary-table">
+                <thead>
+                  <tr>
+                    <th style="width: 60px;">#</th>
+                    <th>Dealer Name</th>
+                    <th>Pincode Prefixes</th>
+                    <th style="text-align: right; width: 140px;">Lead Count</th>
+                  </tr>
+                </thead>
+                <tbody id="dealers-table-body">
+                  <!-- Populated dynamically -->
+                </tbody>
+                <tfoot>
+                  <tr class="total-row">
+                    <td></td>
+                    <td colspan="2" class="font-bold">Total</td>
+                    <td style="text-align: right;" class="font-bold" id="dealers-total-count">40</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. LEADS BY STATUS VIEW (REPORTS) -->
+        <section id="view-reports" class="view-section">
+          <div class="page-header flex-between">
+            <div>
+              <h1 class="page-title">Leads by Status</h1>
+              <p class="page-subtitle">Total leads grouped by status</p>
+            </div>
+            <div class="date-filter-pill">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Apr 1, 2026 - Apr 29, 2026</span>
+            </div>
+          </div>
+
+          <div class="status-view-layout">
+            <!-- Left Chart -->
+            <div class="card status-chart-full">
+              <div class="donut-wrapper large-donut">
+                <svg id="reports-donut-chart" class="svg-donut" viewBox="0 0 260 260"></svg>
+                <div class="donut-center-info">
+                  <span class="donut-total" id="reports-donut-total">40</span>
+                  <span class="donut-sublabel">Total Leads</span>
+                </div>
+              </div>
+              <div class="status-legend" id="reports-status-legend">
+                <!-- Legend items -->
+              </div>
+            </div>
+
+            <!-- Right Status Summary Table -->
+            <div class="card status-summary-card">
+              <div class="card-header">
+                <h3 class="card-title">Status Summary</h3>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Status</th>
+                      <th style="text-align: right; width: 120px;">Count</th>
+                    </tr>
+                  </thead>
+                  <tbody id="status-summary-table-body">
+                    <tr>
+                      <td><span class="status-indicator-dot dot-new"></span> New</td>
+                      <td style="text-align: right; font-weight: 600;" id="summary-count-new">12</td>
+                    </tr>
+                    <tr>
+                      <td><span class="status-indicator-dot dot-contacted"></span> Contacted</td>
+                      <td style="text-align: right; font-weight: 600;" id="summary-count-contacted">15</td>
+                    </tr>
+                    <tr>
+                      <td><span class="status-indicator-dot dot-converted"></span> Converted</td>
+                      <td style="text-align: right; font-weight: 600;" id="summary-count-converted">9</td>
+                    </tr>
+                    <tr>
+                      <td><span class="status-indicator-dot dot-lost"></span> Lost</td>
+                      <td style="text-align: right; font-weight: 600;" id="summary-count-lost">4</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr class="total-row">
+                      <td class="font-bold">Total</td>
+                      <td style="text-align: right;" class="font-bold" id="summary-count-total">40</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. ALL LEADS VIEW -->
+        <section id="view-leads" class="view-section">
+          <div class="page-header flex-between">
+            <div>
+              <h1 class="page-title">All Leads</h1>
+              <p class="page-subtitle">View and manage all leads</p>
+            </div>
+            <div class="header-action-group">
+              <button class="btn btn-outline" id="btn-sync-firebase" title="Sync all legacy leads to Firestore">
+                🔥 Sync to Firestore
+              </button>
+              <button class="btn btn-outline" id="btn-reset-data" title="Reset dataset back to original CSV">
+                Reset Legacy Data
+              </button>
+              <button class="btn btn-primary" onclick="switchView('add-lead')">
+                + Add Lead
+              </button>
+            </div>
+          </div>
+
+          <div class="card table-card">
+            <!-- Filter & Search Bar -->
+            <div class="table-toolbar">
+              <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="lead-search-input" placeholder="Search by name, mobile, pincode or lead ID...">
+              </div>
+
+              <div class="filter-controls">
+                <select id="filter-status" class="filter-select">
+                  <option value="All">All Statuses</option>
+                  <option value="New">New</option>
+                  <option value="Contacted">Contacted</option>
+                  <option value="Converted">Converted</option>
+                  <option value="Lost">Lost</option>
+                </select>
+
+                <select id="filter-dealer" class="filter-select">
+                  <option value="All">All Dealers</option>
+                  <!-- Populated dynamically -->
+                </select>
+              </div>
+            </div>
+
+            <!-- Leads Table -->
+            <div class="table-responsive">
+              <table class="data-table" id="all-leads-table">
+                <thead>
+                  <tr>
+                    <th>Lead ID</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Pincode</th>
+                    <th>Dealer</th>
+                    <th>Status</th>
+                    <th>Created On</th>
+                    <th style="text-align: center; width: 100px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="leads-table-body">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination Bar -->
+            <div class="table-pagination">
+              <div class="pagination-info" id="pagination-info">Showing 1-10 of 40</div>
+              <div class="pagination-pages" id="pagination-buttons">
+                <!-- Page buttons -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- 6. UPDATE STATUS MODAL -->
+  <div class="modal-backdrop" id="update-status-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Update Lead Status</h3>
+        <button class="modal-close-btn" id="modal-close">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-lead-summary">
+          <div class="summary-field">
+            <span class="field-label">Lead ID</span>
+            <span class="field-val" id="modal-lead-id">LEA-001</span>
+          </div>
+          <div class="summary-field">
+            <span class="field-label">Name</span>
+            <span class="field-val" id="modal-lead-name">Rahul Sharma</span>
+          </div>
+          <div class="summary-field">
+            <span class="field-label">Current Status</span>
+            <span id="modal-current-status-badge" class="status-pill status-new">New</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-new-status">New Status <span class="required">*</span></label>
+          <select id="modal-new-status" class="form-control">
+            <option value="New">New</option>
+            <option value="Contacted">Contacted</option>
+            <option value="Converted">Converted</option>
+            <option value="Lost">Lost</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-notes">Notes (optional)</label>
+          <textarea id="modal-notes" class="form-control" rows="3" placeholder="Add any notes..."></textarea>
+        </div>
+
+        <!-- Notes History Section -->
+        <div class="modal-notes-history" id="modal-notes-history-section">
+          <div class="history-title">Activity History</div>
+          <div class="history-list" id="modal-history-list">
+            <!-- Timeline items -->
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="modal-cancel-btn">Cancel</button>
+        <button class="btn btn-primary" id="modal-save-btn">Update</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD DEALER MODAL -->
+  <div class="modal-backdrop" id="add-dealer-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Add New Dealer</h3>
+        <button type="button" class="modal-close-btn" id="dealer-modal-close" onclick="closeAddDealerModal()">&times;</button>
+      </div>
+
+      <form id="add-dealer-form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="new-dealer-name">Dealer Name <span class="required">*</span></label>
+            <input type="text" id="new-dealer-name" class="form-control" placeholder="e.g. Hyderabad Solar Tech" required>
+          </div>
+
+          <div class="form-group">
+            <label for="new-dealer-city">City <span class="required">*</span></label>
+            <input type="text" id="new-dealer-city" class="form-control" placeholder="e.g. Hyderabad" required>
+          </div>
+
+          <div class="form-group">
+            <label for="new-dealer-prefixes">Pincode Prefixes (first 3 digits) <span class="required">*</span></label>
+            <input type="text" id="new-dealer-prefixes" class="form-control" placeholder="e.g. 500 or 500|501|502" required>
+            <span class="form-hint" style="color: var(--text-secondary); font-size: 0.78rem;">Separate multiple 3-digit prefixes with | (e.g. 530|531)</span>
+          </div>
+
+          <div class="form-group">
+            <label for="new-dealer-email">Contact Email</label>
+            <input type="email" id="new-dealer-email" class="form-control" placeholder="e.g. dealer@example.com">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="dealer-modal-cancel" onclick="closeAddDealerModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="dealer-modal-save">Save Dealer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+
+</html>

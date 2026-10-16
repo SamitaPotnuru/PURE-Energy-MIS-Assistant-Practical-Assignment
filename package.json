@@ -1,0 +1,21 @@
+{
+  "name": "pure-energy-dealer-lead-router",
+  "version": "1.0.0",
+  "description": "PURE Energy - Dealer Lead Router MIS Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node -e \"const fs=require('fs'); fs.mkdirSync('dist',{recursive:true}); ['index.html','style.css','app.js'].forEach(f=>{if(fs.existsSync(f)) fs.copyFileSync(f,'dist/'+f);}); console.log('Build completed: assets synced to dist/');\""
+  },
+  "keywords": [
+    "pure-energy",
+    "lead-router",
+    "mis-assistant"
+  ],
+  "author": "PURE Energy",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^13.0.0"
+  }
+}
